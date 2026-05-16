@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Code Solutions</title>
+    
+    <!-- Fuentes e Iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --navy: #001F3F;
+            --beige: #F5F5DC;
+            --gold: #C5A059;
+            --white: #FFFFFF;
+        }
+
+        /* --- RESET GENERAL --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--beige);
+            font-family: 'Lato', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* --- NAV BAR UNIFICADO --- */
+        .nav-bar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 31, 63, 0.95);
+            padding: 12px 30px !important;
+            border-radius: 50px;
+            display: flex !important;
+            gap: 25px !important;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            width: auto !important;
+            white-space: nowrap;
+        }
+
+        .nav-bar a {
+            color: var(--beige);
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px !important;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .nav-bar a:hover { color: var(--gold); }
+
+        /* --- SECCIÓN CONTACTO --- */
+        .contact-container {
+            max-width: 1100px;
+            margin: 140px auto 80px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+        }
+
+        /* Información de Contacto */
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p { margin-bottom: 30px; font-size: 1.1rem; color: #555; }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .info-item i {
+            width: 45px;
+            height: 45px;
+            background: var(--navy);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
+
+        /* Formulario */
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        .form-group label {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--navy);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-family: 'Lato', sans-serif;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus { border-color: var(--gold); }
+
+        .btn-send {
+            background: var(--navy);
+            color: var(--gold);
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-send:hover { background: var(--gold); color: var(--navy); }
+
+        /* Responsivo */
+        @media (max-width: 900px) {
+            .contact-container { grid-template-columns: 1fr; }
+            .contact-info { text-align: center; }
+            .info-item { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <a href="index.html">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <main id="swup" class="transition-fade">
+        <section class="contact-container">
+            
+            <div class="contact-info">
+                <h2>Hablemos de tu próximo paso</h2>
+                <p>Estoy listo para ayudarte a construir la solución digital que tu negocio necesita.</p>
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span> San José, Costa Rica</span>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>codesolutions.studio@gmail.com</span>
+                </div>
+
+                <a href="https://wa.me/50664733770" class="whatsapp-btn" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Chat Directo por WhatsApp
+                </a>
+            </div>
+
+           <div class="contact-form">
+    <!-- Solo debes cambiar 'TU_FORM_ID' por el código que te da Formspree -->
+    <form action="https://formspree.io/f/maqvgpay" method="POST">
+        <div class="form-group">
+            <label>Nombre Completo</label>
+            <input type="text" name="nombre" placeholder="    " required>
+        </div>
+        
+        <div class="form-group">
+            <label>Correo Electrónico</label>
+            <input type="email" name="email" placeholder="     " required>
+        </div>
+
+        <div class="form-group">
+            <label>Tipo de Proyecto</label>
+            <select name="servicio" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Desarrollo Web">Desarrollo Web</option>
+                <option value="Mantenimiento Web">Mantenimiento Web</option>
+                <option value="Consultoría Técnica">Consultoría Técnica</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Mensaje</label>
+            <textarea name="mensaje" rows="5" placeholder="Cuéntame sobre tu idea..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-send">Enviar Mensaje</button>
+    </form>
+</div>
+
+        </section>
+    </main>
+
+</body>
+</html>

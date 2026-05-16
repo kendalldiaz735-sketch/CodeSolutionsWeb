@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | Code Solutions</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES DE MARCA --- */
+        :root {
+            --navy: #001F3F;
+            --beige: #F5F5DC;
+            --gold: #C5A059;
+            --white: #FFFFFF;
+            --menta: #a7f3d0;
+            --gray: #f8fafc;
+        }
+
+        /* --- RESET --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--beige);
+            font-family: 'Lato', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        .nav-bar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 31, 63, 0.95);
+            padding: 12px 30px;
+            border-radius: 50px;
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .nav-bar a {
+            color: var(--beige);
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-bar a:hover { color: var(--gold); }
+
+        /* --- HERO SECTION --- */
+        .services-hero {
+            padding: 160px 20px 80px;
+            text-align: center;
+            background: linear-gradient(rgba(245, 245, 220, 0.85), rgba(245, 245, 220, 0.85)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .services-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .services-hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* --- GRID DE SERVICIOS --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: var(--gold);
+            transition: height 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,31,63,0.1);
+        }
+
+        .service-card:hover::before { height: 10px; }
+
+        .service-card i {
+            font-size: 50px;
+            color: var(--navy);
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        /* --- MÉTRICA VELOCIDAD --- */
+        .metric-box {
+            background: var(--navy);
+            color: var(--white);
+            padding: 80px 40px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+            gap: 40px;
+        }
+
+        .metric-number h2 {
+            font-size: 100px;
+            font-family: 'Poppins', sans-serif;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .metric-number p {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .metric-text { max-width: 500px; }
+        .metric-text h3 { font-size: 32px; margin-bottom: 15px; color: var(--gold); }
+
+        /* --- SEO DETALLE --- */
+        .seo-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .seo-card {
+            padding: 45px;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .seo-dark { background: var(--navy); color: var(--beige); }
+        .seo-light { background: var(--white); border: 1px solid var(--gold); }
+
+        .seo-card h3 { margin-bottom: 15px; font-family: 'Poppins', sans-serif; }
+
+        /* --- PROCESO DE TRABAJO --- */
+        .process-section { margin-bottom: 100px; }
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--navy);
+            margin-bottom: 50px;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 55px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--navy);
+            z-index: 1;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 0 15px;
+        }
+
+        .dot {
+            width: 30px;
+            height: 30px;
+            background: var(--gold);
+            border: 5px solid var(--beige);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+
+        .step h4 { font-family: 'Poppins', sans-serif; color: var(--navy); margin-bottom: 10px; }
+
+        /* --- TABLA DE PLANES --- */
+        .pricing-section { margin-bottom: 100px; }
+        .table-container {
+            overflow-x: auto;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        th { background: var(--navy); color: var(--gold); padding: 25px; text-align: left; }
+        td { padding: 20px 25px; border-bottom: 1px solid #eee; }
+        .check-icon { color: var(--gold); font-weight: bold; }
+
+        /* --- CTA FINAL --- */
+        .cta-section {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: var(--navy);
+            color: var(--white);
+            border-radius: 50px 50px 0 0;
+        }
+
+        .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 20px; }
+
+        .btn-cta {
+            background-color: var(--gold);
+            color: var(--navy);
+            padding: 20px 50px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            border-radius: 50px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover { transform: translateY(-5px); background-color: var(--white); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .services-hero h1 { font-size: 38px; }
+            .seo-detail-grid { grid-template-columns: 1fr; }
+            .timeline { flex-direction: column; gap: 40px; }
+            .timeline::before { display: none; }
+            .metric-box { text-align: center; }
+            .nav-bar { width: 90%; justify-content: space-around; padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <a href="index.html">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <header class="services-hero">
+        <h1>Nuestros Servicios</h1>
+        <p>Impulsamos tu negocio con estrategias de alto impacto y arquitectura de software de élite.</p>
+    </header>
+
+    <main class="main-container">
+        
+        <section class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-code"></i>
+                <h3>Desarrollo Web</h3>
+                <p>Sitios de alto rendimiento con código artesanal. Olvida las plantillas; construimos herramientas escalables.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <h3>Estrategia SEO</h3>
+                <p>Optimización profunda para dominar Google. Atraemos tráfico calificado listo para comprar.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Soporte Crítico</h3>
+                <p>Seguridad 24/7 y mantenimiento proactivo para que tu negocio nunca se detenga.</p>
+            </div>
+        </section>
+
+        <section class="metric-box">
+            <div class="metric-number">
+                <h2>&lt;1s</h2>
+                <p>Carga de Página</p>
+            </div>
+            <div class="metric-text">
+                <h3>La Velocidad es Ventas</h3>
+                <p>Garantizamos un rendimiento superior. Cumplimos con los Core Web Vitals para asegurar que tu sitio sea el más rápido del mercado.</p>
+            </div>
+        </section>
+
+        <section class="seo-detail-grid">
+            <div class="seo-card seo-light">
+                <h3 style="color: var(--navy);">SEO Técnico</h3>
+                <p>Si Google entiende tu sitio rápidamente, te pone en los primeros lugares para que tus prospectos de clientes te encuentren fácilmente.</p>
+            </div>
+            <div class="seo-card seo-dark">
+                <h3 style="color: var(--gold);">Contenido de Autoridad</h3>
+                <p>Implementamos estrategias de palabras clave que posicionan tu marca como líder en su sector.</p>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <h2 class="section-title">Nuestro Proceso de Trabajo</h2>
+            <div class="timeline">
+                <div class="step">
+                    <div class="dot"></div>
+                    <h4>1. Descubrimiento</h4>
+                    <p>Análisis de metas.</p>
+                </div>
+                <div class="step">
+                    <div class="dot"></div>
+                    <h4>2. Estrategia</h4>
+                    <p>Planificación técnica.</p>
+                </div>
+                <div class="step">
+                    <div class="dot"></div>
+                    <h4>3. Desarrollo</h4>
+                    <p>Construcción artesanal.</p>
+                </div>
+                <div class="step">
+                    <div class="dot"></div>
+                    <h4>4. Lanzamiento</h4>
+                    <p>Optimización y puesta en marcha.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section">
+    <h2 class="section-title">Modelos de Colaboración</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Característica / Servicio</th>
+                    <th>Sin Soporte Técnico</th>
+                    <th>Con Soporte Proactivo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Desarrollo y Entrega de Código</td>
+                    <td><span class="check-icon">✓</span> Completo</td>
+                    <td><span class="check-icon">✓</span> Completo</td>
+                </tr>
+                <tr>
+                    <td>Optimización SEO Inicial</td>
+                    <td><span class="check-icon">✓</span> Incluido</td>
+                    <td><span class="check-icon">✓</span> Monitoreo Constante</td>
+                </tr>
+                <tr>
+                    <td>Actualizaciones de Seguridad</td>
+                    <td>Responsabilidad del Cliente</td>
+                    <td><span class="check-icon">✓</span> Ejecución Inmediata</td>
+                </tr>
+                <tr>
+                    <td>Copias de Seguridad (Backups)</td>
+                    <td>Responsabilidad del Cliente</td>
+                    <td><span class="check-icon">✓</span> Automatizadas Diarias</td>
+                </tr>
+                <tr>
+                    <td>Resolución de Errores Críticos</td>
+                    <td>Bajo Cotización Extra</td>
+                    <td><span class="check-icon">✓</span> Prioridad 24/7</td>
+                </tr>
+                <tr>
+                    <td>Infraestructura y Hosting</td>
+                    <td>Gestión por el Cliente</td>
+                    <td><span class="check-icon">✓</span> Gestión Integral</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+    </main>
+
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>¿Listo para el siguiente nivel?</h2>
+            <p>Transformemos tu presencia digital con tecnología de élite.</p>
+            <a href="contacto.html" class="btn-cta">Iniciar mi proyecto hoy</a>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Code Solutions</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --navy: #001F3F;
+            --beige: #F5F5DC;
+            --gold: #C5A059;
+            --white: #FFFFFF;
+            --menta: #a7f3d0;
+        }
+
+        /* --- RESET GENERAL --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--beige);
+            font-family: 'Lato', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- BARRA DE NAVEGACIÓN --- */
+        .nav-bar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 31, 63, 0.95);
+            padding: 12px 30px;
+            border-radius: 50px;
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .nav-bar a {
+            color: var(--beige);
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-bar a:hover { color: var(--gold); }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+            display: block;
+        }
+
+        /* --- SECCIÓN BIOGRAFÍA (MEJORADA) --- */
+        .ceo-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 60px; /* Más espacio entre foto y texto */
+            margin-bottom: 100px;
+            padding: 20px;
+        }
+
+        .ceo-photo-container {
+            position: relative;
+            width: 300px; /* Un poco más grande */
+            height: 300px;
+            flex-shrink: 0;
+        }
+
+        .ceo-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 4px solid var(--gold);
+            box-shadow: 20px 20px 0px var(--navy); /* Sombra más marcada */
+            transition: transform 0.3s ease;
+        }
+
+        .ceo-photo:hover {
+            transform: scale(1.02);
+        }
+
+        .ceo-text { 
+            flex: 1; 
+            min-width: 320px; 
+            padding: 10px; /* Aire interno para el texto */
+        }
+        
+        .ceo-name { font-family: 'Playfair Display', serif; font-size: 48px; color: var(--navy); margin-bottom: 5px; }
+        .ceo-role { color: var(--gold); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; }
+        
+        .ceo-text p {
+            font-size: 1.1rem;
+            color: #444;
+            max-width: 600px;
+        }
+
+        /* --- VALORES CORE --- */
+        .section-title {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            color: var(--navy);
+            margin-bottom: 40px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: 45px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,31,63,0.1);
+            border-color: var(--gold);
+        }
+
+        .value-card i { font-size: 50px; color: var(--gold); margin-bottom: 20px; display: block; } /* Íconos en Dorado */
+        .value-card h4 { font-family: 'Poppins', sans-serif; font-size: 22px; margin-bottom: 15px; color: var(--navy); }
+
+        /* --- DIFERENCIADORES --- */
+        .diff-box {
+            background: var(--navy);
+            color: var(--white);
+            padding: 60px;
+            border-radius: 30px;
+            margin-bottom: 80px;
+        }
+
+        .diff-box h3 { color: var(--gold); text-align: center; margin-bottom: 40px; font-size: 28px; }
+
+        .check-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .check-item { display: flex; gap: 15px; }
+        .check-item i { color: var(--menta); font-size: 24px; }
+        .check-item strong { color: var(--gold); display: block; margin-bottom: 5px; }
+
+        /* --- SECCIÓN CTA (NUEVA) --- */
+        .cta-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(245, 245, 220, 0.9), rgba(245, 245, 220, 0.9)), url('tu-fondo-sutil.jpg');
+            border-top: 2px solid var(--gold);
+        }
+
+        .cta-container h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .cta-container p {
+            font-size: 18px;
+            margin-bottom: 35px;
+            color: #555;
+        }
+
+        .btn-cta {
+            background-color: var(--navy);
+            color: var(--gold);
+            padding: 18px 40px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(0,31,63,0.2);
+        }
+
+        .btn-cta:hover {
+            background-color: var(--gold);
+            color: var(--navy);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(197, 160, 89, 0.4);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .ceo-section { text-align: center; gap: 40px; }
+            .ceo-photo-container { margin: 0 auto; width: 260px; height: 260px; }
+            .diff-box { padding: 40px 20px; }
+            .ceo-name { font-size: 36px; }
+            .cta-container h2 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <a href="index.html">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <main class="main-wrapper">
+        
+        <section class="ceo-section">
+            <div class="ceo-photo-container">
+                <img src="kendallmain.webp" alt="Kendall Díaz" class="ceo-photo">
+            </div>
+            <div class="ceo-text">
+                <h2 class="ceo-name">Kendall Díaz</h2>
+                <p class="ceo-role">CEO & Full-Stack Developer</p>
+                <p>Como fundador de <strong>Code Solutions</strong>, creo firmemente que la tecnología debe estar al servicio de las personas, no al revés. Por eso, me dedico a construir <strong>software a medida</strong> que sea fácil de usar, rápido y eficiente. Mi enfoque es simple: escucho tus necesidades y las convierto en una arquitectura digital sólida que haga <strong>crecer tu marca</strong>.</p>
+            </div>
+        </section>
+
+        <h3 class="section-title">Nuestros Valores</h3>
+        <div class="values-grid">
+            <div class="value-card">
+                <i class="fa-solid fa-eye"></i>
+                <h4>Transparencia</h4>
+                <p>Comunicación clara y honesta en cada etapa del desarrollo.</p>
+            </div>
+            <div class="value-card">
+                <i class="fa-solid fa-lightbulb"></i>
+                <h4>Innovación</h4>
+                <p>Uso de tecnologías modernas para soluciones rápidas y escalables.</p>
+            </div>
+            <div class="value-card">
+                <i class="fa-solid fa-award"></i>
+                <h4>Calidad</h4>
+                <p>Código limpio escrito a mano, optimizado para el máximo rendimiento.</p>
+            </div>
+        </div>
+
+        <section class="diff-box">
+            <h3>¿Por qué elegir Code Solutions?</h3>
+            <div class="check-grid">
+                <div class="check-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span><strong>Velocidad que Vende:</strong> Creamos sitios rápidos que convierten visitantes en clientes. Si tu web es lenta, pierdes dinero; nosotros aseguramos que cada segundo cuente.</span>
+                </div>
+                <div class="check-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span><strong>Imán de Clientes (SEO):</strong> No solo hacemos webs bonitas; las hacemos visibles. Estructuramos tu sitio para que Google te encuentre antes que a tu competencia.</span>
+                </div>
+                <div class="check-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span><strong>Tu Negocio Abierto 24/7:</strong> Tu sitio web trabajará por ti mientras duermes, capturando leads y proyectando profesionalismo en todo momento.</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>¿Listo para digitalizar tu visión?</h2>
+            <p>Hagamos que tu negocio destaque con tecnología de alto rendimiento.</p>
+            <a href="contacto.html" class="btn-cta">Hablemos de tu proyecto</a>
+        </div>
+    </section>
+
+</body>
+</html>

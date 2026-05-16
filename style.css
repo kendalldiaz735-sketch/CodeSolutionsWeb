@@ -1,0 +1,271 @@
+
+/* 1. SETUP Y VARIABLES DE ESTILO */
+:root {
+    --navy: #001F3F;
+    --beige: #F5F5DC;
+    --slate: #708090;
+    --gold: #C5A059;
+    --white: #FFFFFF;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    background-color: var(--beige);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* 2. ESTRUCTURA DE SECCIÓN */
+.slide-container {
+    width: 100%;
+    max-width: 1280px;
+    background-color: var(--beige);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 5%; 
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    border-radius: 4px;
+    margin: 0 auto;
+}
+
+.slide-content { 
+    position: relative; 
+    z-index: 1; 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
+    width: 100%;
+}
+
+/* 3. TIPOGRAFÍA */
+h1 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: clamp(32px, 8vw, 85px); 
+    color: var(--navy); 
+    line-height: 1.1; 
+    margin-bottom: 20px; 
+    word-wrap: break-word;
+}
+
+.slide-title { 
+    font-family: 'Poppins', sans-serif; 
+    font-size: clamp(24px, 5vw, 42px); 
+    color: var(--navy); 
+    margin-bottom: 40px; 
+    border-left: 10px solid var(--gold); 
+    padding-left: 20px; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+}
+
+h3 { 
+    font-family: 'Poppins', sans-serif; 
+    font-size: 28px; 
+    color: var(--navy); 
+    margin-bottom: 15px; 
+}
+
+p, li { 
+    font-size: 18px; 
+    color: #2d3748; 
+    line-height: 1.6; 
+}
+
+/* 4. COMPONENTES */
+.content-area { 
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    width: 100%; 
+}
+
+.two-column { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 40px; 
+    width: 100%; 
+    align-items: start; 
+}
+
+.tile {
+    background: var(--navy);
+    color: var(--beige);
+    padding: 30px;
+    border-radius: 2px;
+    border-top: 6px solid var(--gold);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.tile p {
+    color: var(--beige);
+    font-size: 18px;
+}
+
+.icon-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; 
+    width: 100%;
+}
+
+.icon-tile { 
+    text-align: center; 
+    padding: 30px; 
+    background: rgba(255,255,255,0.4); 
+    border: 1px solid rgba(0,31,63,0.1); 
+}
+
+/* Barra de Navegación */
+.nav-bar {
+    position: fixed;
+    top: 10px;
+    background: rgba(0, 31, 63, 0.95);
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: flex;
+    gap: 15px;
+    z-index: 1000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    max-width: 95%;
+}
+
+.nav-bar a { 
+    color: var(--beige); 
+    text-decoration: none; 
+    font-family: 'Poppins', sans-serif; 
+    font-size: 12px; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+}
+
+/* WhatsApp */
+.boton-whatsapp {
+    display: block;
+    background-color: #25D366; 
+    color: var(--white);
+    padding: 15px 20px;
+    text-decoration: none;
+    border-radius: 50px; 
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-top: 20px; 
+    text-align: center;
+    width: fit-content;
+}
+
+/* --- SECCIÓN DE INICIO --- */
+#inicio {
+    background-image: 
+        linear-gradient(rgba(245, 245, 220, 0.85), rgba(245, 245, 220, 0.85)), 
+        url('headerweb.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#inicio .slide-content {
+    padding: 80px 0;
+}
+
+/* --- AJUSTES MÓVILES --- */
+@media (max-width: 600px) {
+    body { padding: 10px 0; }
+    .slide-container {
+        padding: 40px 20px;
+        border-radius: 0;
+    }
+    .nav-bar {
+        gap: 10px;
+        padding: 8px 15px;
+    }
+    .nav-bar a { font-size: 10px; }
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   LÓGICA DE TRANSICIÓN SWUP (AÑADIDO)
+   ============================================================ */
+
+/* Esto asegura que el contenido desaparezca suavemente */
+.transition-fade {
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+}
+
+/* Cuando Swup está cambiando de página, el contenido se oculta */
+html.is-changing .transition-fade {
+    opacity: 0;
+    transform: translateY(15px); /* Efecto de caída suave */
+}
+/* --- SECCIÓN CTA --- */
+.cta-section {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: var(--beige); /* O el fondo que prefieras */
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.cta-container h2 {
+    font-family: 'Poppins', sans-serif; /* O la que uses en Index */
+    font-size: 36px;
+    color: var(--navy);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.cta-container p {
+    font-size: 18px;
+    margin-bottom: 35px;
+    color: #555;
+}
+
+/* EL BOTÓN */
+.btn-cta {
+    background-color: var(--navy);
+    color: var(--gold);
+    padding: 18px 40px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 10px 20px rgba(0,31,63,0.2);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cta:hover {
+    background-color: var(--gold);
+    color: var(--navy);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(197, 160, 89, 0.4);
+}
+
+/* Estilo para los datos de abajo (opcional) */
+.contact-info-sub {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 14px;
+    color: var(--navy);
+    opacity: 0.8;
+}

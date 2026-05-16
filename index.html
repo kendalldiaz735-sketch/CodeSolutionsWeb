@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Solutions | Arquitectura Digital</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<!-- El menú se queda fuera para que sea persistente -->
+<nav class="nav-bar">
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="contacto.html">Contacto</a>
+</nav>
+
+<!-- CONTENEDOR SWUP: Todo lo que esté aquí dentro se animará -->
+<main id="swup" class="transition-fade">
+
+    <section class="slide-container" id="inicio">
+        <div class="slide-content">
+            <p style="color: var(--gold); letter-spacing: 4px; font-weight: 700;">ESTRATEGIA & CÓDIGO</p>
+            <h1>Code Solutions</h1>
+            <p>Tu aliado digital de confianza.</p>
+        </div>
+    </section>
+
+    <section class="slide-container" id="nosotros">
+        <h2 class="slide-title">Nosotros</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>Enfoque en Resultados</h3>
+                    <p>Tu negocio merece ser encontrado fácilmente. En Code Solutions, transformamos tu presencia en internet en una ventaja competitiva. Creamos páginas web rápidas, amigables y listas para vender.</p>
+                </div>
+                <div class="tile">
+                    <p>¿Hablamos sobre cómo llevar tu negocio al siguiente nivel?</p>
+                    <a href="https://wa.me/50664733770" class="boton-whatsapp" target="_blank">
+                         ¡Hablemos por WhatsApp!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide-container" id="servicios">
+        <h2 class="slide-title">Servicios</h2>
+        <div class="icon-grid">
+            <div class="icon-tile">
+                <i class="fa-solid fa-code"></i>
+                <h3>Desarrollo Full-Stack</h3>
+            </div>
+            <div class="icon-tile">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Optimización Core</h3>
+            </div>
+            <div class="icon-tile">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Soporte Crítico</h3>
+            </div>
+        </div>
+    </section>
+
+<!-- Cambiamos background: var(--white) por background: var(--beige) -->
+<section class="portfolio-preview" style="padding: 80px 20px; background: var(--beige); text-align: center;">
+    <h3 class="section-title">Proyectos Destacados</h3>
+    <div class="project-card" style="max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 40px; text-align: left;">
+        
+        <div class="project-image" style="flex: 1; min-width: 300px;">
+            <!-- El borde y la sombra ayudan a que la imagen resalte sobre el beige -->
+            <img src="GTF MAIN.jpg" alt="Gym Total Fit Project" style="width: 100%; border-radius: 15px; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+        </div>
+
+        <div class="project-info" style="flex: 1; min-width: 300px;">
+            <span style="color: var(--gold); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Caso de Éxito</span>
+            <h4 style="font-size: 28px; color: var(--navy); margin: 10px 0; font-family: 'Playfair Display', serif;">Gym Total Fit</h4>
+            <p style="color: #444;">Desarrollo de plataforma web optimizada, enfocada en la captación de nuevos miembros y posicionamiento local.</p> 
+            <a href="https://www.gymtotalfit.lat" target="_blank" class="btn-cta" style="margin-top: 20px; padding: 12px 25px; font-size: 14px; display: inline-block;">Visitar Sitio</a>
+        </div>
+
+    </div>
+</section>
+
+    <section class="cta-section">
+    <div class="cta-container">
+        <h2>¿LISTO PARA ESCALAR?</h2>
+        <p>Hagamos que tu negocio destaque con tecnología de alto rendimiento.</p>
+        
+        <a href="contacto.html" class="btn-cta">HABLEMOS DE TU PROYECTO</a>
+
+        <div class="contact-info-sub">
+            <span><i class="fa-solid fa-phone"></i> +506 6473 3770</span>
+            <span><i class="fa-solid fa-envelope"></i> codesolutions.studio@gmail.com</span>
+        </div>
+    </div>
+
+</section>
+</main>
+</body>
+</html>
